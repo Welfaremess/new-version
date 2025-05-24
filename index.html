@@ -120,11 +120,12 @@
     <div class="tab-pane fade show active" id="setEmail" role="tabpanel">
       <div class="download-wrapper text-center mt-5">
         <h4 class="mb-4">Download Version 2 of the APK</h4>
-        <a href="https://drive.google.com/uc?export=download&id=1OKpVQ5Gitrz7wBSadq__joH5yZqchKJW" 
-           class="btn btn-success btn-lg"
-           download>
-          Download Version 2 APK
-        </a>
+        <button class="btn btn-primary btn-lg" onclick="copyLink()">
+          Copy APK Download Link
+        </button>
+        <p id="copyMessage" class="mt-3 text-success" style="display:none;">
+          Link copied to clipboard!
+        </p>
       </div>
     </div>
 
@@ -136,4 +137,18 @@
     </div>
   </div>
 
-</body></html>
+  <script>
+    function copyLink() {
+      const link = "https://drive.google.com/uc?export=download&id=1OKpVQ5Gitrz7wBSadq__joH5yZqchKJW";
+      navigator.clipboard.writeText(link).then(() => {
+        const msg = document.getElementById('copyMessage');
+        msg.style.display = 'block';
+        setTimeout(() => { msg.style.display = 'none'; }, 3000);
+      }).catch(err => {
+        alert('Failed to copy link: ' + err);
+      });
+    }
+  </script>
+
+</body>
+</html>
