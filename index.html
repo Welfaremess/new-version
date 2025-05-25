@@ -108,33 +108,47 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-  <h1 style="text-align: center; color: red; margin-top: 20px;">
-    Yaha se bhi delete kar de? </br> Chhor the Chhota
-  </h1>
 
-  <div class="container text-center mt-5">
-    <img 
-      src="https://lh3.googleusercontent.com/d/1alM8v3CgFRgsrHx-pj8FnbtrAe95lkmI" 
-      alt="Relevant Image" 
-      style="max-width: 50%; height: auto;"
-    />
-    
-    <div class="mt-5 text-left" style="max-width: 800px; margin: auto;">
-      <p>
-        I would like to formally raise several concerns regarding the current administration of the Welfare Mess:
-      </p>
-      <ul>
-        <li>Firstly, I am unclear about the process through which the current chairman was appointed. To my knowledge, no voting or transparent selection process took place.</li>
-        <li>Secondly, I question the rationale behind the additional ₹1000 being collected from each member under the label of a “security deposit.” There has been no clear communication or justification for this amount.</li>
-        <li>There is no clear accountability of usage of reserve funds.</li>
-        <li>Furthermore, my sincere efforts over the past two months to improve transparency in mess operations are being actively obstructed, which is disheartening and counterproductive.</li>
-        <li>There are also concerns about the exclusivity in ordering for the mess. Why should only one individual be allowed to place orders without collective consultation?</li>
-        <li>Lastly, I have observed instances where mess orders are being returned, and suspicious invoices are subsequently used to claim reimbursements. These are not unsubstantiated claims; I have supporting testimony from a former roommate, Keshav Jha, as an alibi.</li>
-      </ul>
-      <p>
-        I hope these issues are given due consideration, and steps are taken to ensure transparency, fairness, and accountability in the administration of the mess.
-      </p>
+  <div class="top-header">
+    Welfare Mess
+    <button class="refresh-btn" onclick="location.reload()" title="Refresh">
+      <i class="fas fa-sync-alt"></i>
+    </button>
+  </div>
+
+  <div class="container-fluid tab-content" id="tabContent">
+    <div class="tab-pane fade show active" id="setEmail" role="tabpanel">
+      <div class="download-wrapper text-center mt-5">
+        <h4 class="mb-4">Download Version 2 of the APK</h4>
+        <button class="btn btn-primary btn-lg" onclick="copyLink()">
+          Copy APK Download Link
+        </button>
+        <p id="copyMessage" class="mt-3 text-success" style="display:none;">
+          Link copied to clipboard!
+        </p>
+      </div>
+    </div>
+
+    <div class="about-section">
+      <hr />
+      <p><strong>This app is created by Rahul Gupta.</strong></p>
+      <p>Email: rkgchpc@gmail.com</p>
+      <p>Phone: +91 89053 37897</p>
     </div>
   </div>
+
+  <script>
+    function copyLink() {
+      const link = "https://drive.google.com/uc?export=download&id=1OKpVQ5Gitrz7wBSadq__joH5yZqchKJW";
+      navigator.clipboard.writeText(link).then(() => {
+        const msg = document.getElementById('copyMessage');
+        msg.style.display = 'block';
+        setTimeout(() => { msg.style.display = 'none'; }, 3000);
+      }).catch(err => {
+        alert('Failed to copy link: ' + err);
+      });
+    }
+  </script>
+
 </body>
 </html>
